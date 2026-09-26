@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>หน้าแรก | ระบบรับสมัครนักศึกษาใหม่ มจพ. TCAS 70</title>
+<meta name="description" content="เว็บไซต์ระบบรับสมัครนักศึกษาใหม่ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.) ปีการศึกษา 2570">
+<!-- ลิงก์ไฟล์ CSS กลางที่ใช้ร่วมกันทุกหน้า -->
+<link rel="stylesheet" href="style.css">
+
+<!--
+  ============================================================
+  index.html — หน้าแรกของเว็บไซต์ (Home)
+    - index.html     : หน้านี้ (พาดหัว + ทางลัดไปหน้าอื่น)
+    - schedule.html  : กำหนดการรับสมัคร + ตารางเปรียบเทียบ
+    - apply.html     : แบบฟอร์มแจ้งความประสงค์สมัครเรียน
+    - contact.html   : ช่องทางติดต่อ
+  ทุกหน้าลิงก์ style.css ไฟล์เดียวกัน
+  ============================================================
+-->
+</head>
+<body>
+
+<!-- ============================== HEADER (เหมือนกันทุกหน้า) ============================== -->
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-kmutnb.png" alt="ตราสัญลักษณ์ มจพ.">
+      <span class="brand-text">
+        <span class="brand-name">มจพ. พระนครฯ</span><br>
+        <span class="brand-sub">ระบบรับสมัครนักศึกษาใหม่ TCAS 70</span>
+      </span>
+    </a>
+    <input type="checkbox" id="navToggle" class="nav-toggle" aria-hidden="true">
+    <label for="navToggle" class="menu-btn" aria-label="เปิด/ปิดเมนู"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="active">หน้าแรก</a>
+      <a href="schedule.html">กำหนดการ</a>
+      <a href="apply.html">สมัครเรียน</a>
+      <a href="contact.html">ติดต่อเรา</a>
+      <a href="apply.html" class="cta">แจ้งความประสงค์</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== HERO (พื้นที่หรือส่วนบนหน้าเว็บ) ============================== -->
+<section class="hero">
+  <div class="wrap hero-photo-wrap">
+    <img class="hero-photo" src="assets/kmutnb-hero.jpg" alt="อาคาร มจพ. พระนครเหนือ">
+  </div>
+</section>
+
+<!-- ============================== ทางลัดไปยังหน้าอื่น ============================== -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>เริ่มต้นใช้งานระบบรับสมัคร</h2>
+      <p>เลือกหัวข้อที่ต้องการ ระบบแยกเป็นหน้าย่อยเพื่อให้หาข้อมูลได้ง่ายและโหลดเร็ว</p>
+    </div>
+    <div class="link-cards">
+      <a class="link-card" href="schedule.html">
+        <b>กำหนดการรับสมัคร</b>
+        <span>ดูวันรับสมัครทั้ง 4 รอบของ TCAS 70 พร้อมตารางเปรียบเทียบ Portfolio / Quota / Admission</span>
+      </a>
+      <a class="link-card" href="apply.html">
+        <b>แบบฟอร์มสมัครเรียน</b>
+        <span>กรอกข้อมูลส่วนตัว ข้อมูลการศึกษา เลือกสาขา และแนบเอกสารประกอบการสมัคร</span>
+      </a>
+      <a class="link-card" href="contact.html">
+        <b>ติดต่อสอบถาม</b>
+        <span>เบอร์โทร ช่องทางออนไลน์ และที่ตั้งของกลุ่มงานรับเข้าศึกษา มจพ.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER (เหมือนกันทุกหน้า) ============================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo-invention.jpg" alt="KMUTNB Invention to Innovation">
+        <span>
+          <b>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</b>
+          <span>King Mongkut's University of Technology North Bangkok</span>
+        </span>
+      </div>
+      <div class="footer-note">ระบบรับสมัครนักศึกษาใหม่ · ปีการศึกษา 2570</div>
+    </div>
+    <hr class="foot-rule">
+    <div class="footer-note" style="text-align:left;">© 2570 KMUTNB Admission Demo — จัดทำเพื่อประกอบการเรียนวิชาอาจารย์โอ็ต </div>
+  </div>
+</footer>
+
+</body>
+</html>

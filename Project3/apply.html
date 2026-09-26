@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>สมัครเรียน | ระบบรับสมัครนักศึกษาใหม่ มจพ. TCAS 70</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-kmutnb.png" alt="ตราสัญลักษณ์ มจพ.">
+      <span class="brand-text">
+        <span class="brand-name">มจพ. พระนครฯ</span><br>
+        <span class="brand-sub">ระบบรับสมัครนักศึกษาใหม่ TCAS 70</span>
+      </span>
+    </a>
+    <input type="checkbox" id="navToggle" class="nav-toggle" aria-hidden="true">
+    <label for="navToggle" class="menu-btn" aria-label="เปิด/ปิดเมนู"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="schedule.html">กำหนดการ</a>
+      <a href="apply.html" class="active">สมัครเรียน</a>
+      <a href="contact.html">ติดต่อเรา</a>
+      <a href="apply.html" class="cta">แจ้งความประสงค์</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head wrap">
+  <h1>แบบฟอร์มแจ้งความประสงค์สมัครเรียน</h1>
+  <p>กรอกข้อมูลให้ครบถ้วนเพื่อให้เจ้าหน้าที่ติดต่อกลับและยืนยันสิทธิ์การสมัครของท่าน</p>
+</div>
+
+<!-- ============================== APPLY FORM ============================== -->
+<section class="section-pad">
+  <div class="wrap" style="max-width:820px;">
+    <div class="apply-shell">
+      <div class="apply-head">
+        <h2>ข้อมูลผู้สมัคร</h2>
+        <p>ทุกช่องที่มีเครื่องหมาย * ต้องกรอกให้ครบก่อนกดส่ง</p>
+      </div>
+
+      <form class="apply-form" action="#success" method="get">
+
+        <div class="form-block">
+          <div class="form-block-title"><span class="n">1</span>ข้อมูลส่วนตัว</div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="fname">ชื่อ <span class="req">*</span></label>
+              <input id="fname" name="fname" type="text" required autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="lname">นามสกุล <span class="req">*</span></label>
+              <input id="lname" name="lname" type="text" required autocomplete="family-name">
+            </div>
+            <div class="field">
+              <label for="citizenId">เลขบัตรประจำตัวประชาชน <span class="req">*</span></label>
+              <input id="citizenId" name="citizenId" type="text" inputmode="numeric"
+                     pattern="[0-9]{13}" maxlength="13" placeholder="กรอกตัวเลข 13 หลัก" required>
+              <small class="hint">กรอกตัวเลขล้วน 13 หลัก ไม่ต้องมีขีด</small>
+            </div>
+            <div class="field">
+              <label for="dob">วัน เดือน ปีเกิด <span class="req">*</span></label>
+              <input id="dob" name="dob" type="date" required>
+            </div>
+            <div class="field">
+              <label for="phone">เบอร์โทรศัพท์ <span class="req">*</span></label>
+              <input id="phone" name="phone" type="tel" pattern="[0-9\-]{9,10}" placeholder="08X-XXX-XXXX" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="email">อีเมล <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="field full">
+              <label for="address">ที่อยู่ตามทะเบียนบ้าน <span class="req">*</span></label>
+              <textarea id="address" name="address" required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <div class="form-block-title"><span class="n">2</span>ข้อมูลการศึกษา</div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="school">สถานศึกษาเดิม <span class="req">*</span></label>
+              <input id="school" name="school" type="text" required>
+            </div>
+            <div class="field">
+              <label for="gradYear">ปีที่จบการศึกษา <span class="req">*</span></label>
+              <input id="gradYear" name="gradYear" type="text" inputmode="numeric" pattern="[0-9]{4}" placeholder="เช่น 2569" required>
+            </div>
+            <div class="field">
+              <label for="level">ระดับการศึกษา <span class="req">*</span></label>
+              <select id="level" name="level" required>
+                <option value="" disabled selected>เลือกระดับการศึกษา</option>
+                <option>มัธยมศึกษาตอนปลาย (ม.6)</option>
+                <option>ประกาศนียบัตรวิชาชีพ (ปวช.)</option>
+                <option>ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</option>
+                <option>อื่น ๆ</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="gpax">เกรดเฉลี่ยสะสม (GPAX) <span class="req">*</span></label>
+              <input id="gpax" name="gpax" type="number" step="0.01" min="0" max="4" placeholder="0.00 - 4.00" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <div class="form-block-title"><span class="n">3</span>เลือกสาขาที่สมัคร</div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="faculty">คณะ <span class="req">*</span></label>
+              <select id="faculty" name="faculty" required>
+                <option value="" disabled selected>เลือกคณะ</option>
+                <option>คณะวิศวกรรมศาสตร์</option>
+                <option>คณะครุศาสตร์อุตสาหกรรม</option>
+                <option>คณะวิทยาศาสตร์ประยุกต์</option>
+                <option>คณะเทคโนโลยีสารสนเทศ</option>
+                <option>คณะสถาปัตยกรรมและการออกแบบ</option>
+                <option>วิทยาลัยเทคโนโลยีอุตสาหกรรม</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="major">สาขาวิชา <span class="req">*</span></label>
+              <input id="major" name="major" type="text" placeholder="เช่น วิศวกรรมคอมพิวเตอร์" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <div class="form-block-title"><span class="n">4</span>เอกสารประกอบการสมัคร</div>
+          <div class="upload-list">
+            <div class="upload-item">
+              <div class="upload-info">
+                <b>ใบแสดงผลการเรียน (ปพ.1)</b>
+                <span>ไฟล์สกุล pdf, jpg, png ขนาดไม่เกิน 5 MB</span>
+              </div>
+              <input type="file" id="file1" name="file1" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+            <div class="upload-item">
+              <div class="upload-info">
+                <b>สำเนาบัตรประชาชน</b>
+                <span>ไฟล์สกุล pdf, jpg, png ขนาดไม่เกิน 5 MB</span>
+              </div>
+              <input type="file" id="file2" name="file2" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+            <div class="upload-item">
+              <div class="upload-info">
+                <b>รูปถ่ายหน้าตรง</b>
+                <span>ไฟล์สกุล pdf, jpg, png ขนาดไม่เกิน 5 MB</span>
+              </div>
+              <input type="file" id="file3" name="file3" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+          </div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          ข้าพเจ้าขอรับรองว่าข้อมูลและเอกสารที่ให้ไว้ในแบบฟอร์มนี้ถูกต้องและเป็นความจริงทุกประการ
+        </label>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">ส่งใบสมัคร</button>
+          <span class="form-note">เจ้าหน้าที่จะติดต่อกลับภายใน 3–5 วันทำการ</span>
+        </div>
+      </form>
+
+      <div class="success-msg" id="success">
+        ส่งใบสมัครเรียบร้อยแล้ว ขอบคุณที่สนใจสมัครเรียนกับ มจพ. เจ้าหน้าที่จะติดต่อกลับตามช่องทางที่ท่านระบุไว้
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo-invention.jpg" alt="KMUTNB Invention to Innovation">
+        <span>
+          <b>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</b>
+          <span>King Mongkut's University of Technology North Bangkok</span>
+        </span>
+      </div>
+      <div class="footer-note">ระบบรับสมัครนักศึกษาใหม่ · ปีการศึกษา 2570</div>
+    </div>
+    <hr class="foot-rule">
+    <div class="footer-note" style="text-align:left;">© 2570 KMUTNB Admission Demo — จัดทำเพื่อประกอบการเรียนวิชาอาจารย์โอ็ต </div>
+  </div>
+</footer>
+
+</body>
+</html>

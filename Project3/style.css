@@ -1,0 +1,645 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;                         /* เบราว์เซอร์ใส่ margin รอบ body มาให้เป็นค่าเริ่มต้น เอาออก */
+  font-family: Tahoma, "Angsana New", sans-serif; /* ฟอนต์ที่เครื่องส่วนใหญ่มีอยู่แล้ว ไม่ต้องโหลดจากเน็ต */
+  color: #24211D;                    /* สีตัวหนังสือหลัก เกือบดำ */
+  background: #FFFFFF;               /* สีพื้นหลังหน้าเว็บ */
+  line-height: 1.6;                  /* ระยะห่างระหว่างบรรทัด อ่านง่ายขึ้น */
+}
+
+h1, h2, h3 {
+  margin: 0;                         /* ลบ margin เริ่มต้นของหัวข้อ จะได้คุมระยะเองทีหลัง */
+}
+
+img {
+  max-width: 100%;                   /* ห้ามรูปกว้างเกินกล่องที่ใส่อยู่ */
+  display: block;                    /* เปลี่ยนจาก inline เป็น block กันช่องว่างแปลก ๆ ใต้รูป */
+}
+
+a {
+  color: inherit;                    /* ให้ลิงก์ใช้สีเดียวกับตัวหนังสือรอบ ๆ แทนสีน้ำเงินขีดเส้นใต้ */
+  text-decoration: none;             /* เอาเส้นใต้ลิงก์ออก */
+}
+
+/* กล่องกลางจอ ใช้ครอบเนื้อหาแทบทุก section เพื่อไม่ให้เนื้อหากว้างจนสุดขอบจอ */
+.wrap {
+  max-width: 1080px;                 /* ความกว้างสูงสุดของเนื้อหา */
+  margin: 0 auto;                    /* auto ซ้ายขวา = จัดกล่องให้อยู่กึ่งกลางแนวนอน */
+  padding: 0 20px;                   /* เว้นระยะซ้ายขวา กันเนื้อหาชิดขอบจอเกินไปบนมือถือ */
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 2: แถบเมนูด้านบน (Header)
+   ------------------------------------------------------------ */
+
+.site-header {
+  background: #FAF6EF;               /* สีพื้นหลังโทนครีมของแถบเมนู */
+  border-bottom: 1px solid #E1D7BF;  /* เส้นบาง ๆ กั้นระหว่างเมนูกับเนื้อหา */
+}
+
+.nav-row {
+  display: flex;                     /* จัดโลโก้กับเมนูให้อยู่แถวเดียวกัน */
+  align-items: center;               /* จัดกึ่งกลางแนวตั้ง */
+  justify-content: space-between;    /* โลโก้อยู่ซ้ายสุด เมนูอยู่ขวาสุด */
+  flex-wrap: wrap;                   /* ถ้าพื้นที่ไม่พอ ให้ตกบรรทัดแทนที่จะล้นจอ */
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  position: relative;                /* จุดอ้างอิงตำแหน่งของเมนูมือถือที่จะลอยด้านล่าง (ดูส่วนที่ 3) */
+}
+
+.brand {
+  display: flex;                     /* วางโลโก้กับตัวหนังสือชื่อมหาลัยให้อยู่แถวเดียวกัน */
+  align-items: center;
+  gap: 10px;                         /* ระยะห่างระหว่างโลโก้กับตัวหนังสือ */
+  color: #24211D;
+}
+
+.brand img {
+  height: 40px;                      /* บังคับขนาดโลโก้ ไม่ให้ใหญ่ตามไฟล์ต้นฉบับ */
+  width: 40px;
+}
+
+.brand-name {
+  font-weight: bold;                 /* ชื่อมหาลัยตัวหนา */
+  color: #7E1D2B;                    /* สีแดงเลือดหมู (สีหลักของมหาลัย พิมพ์ไว้ตรง ๆ) */
+  font-size: 16px;
+}
+
+.brand-sub {
+  font-size: 12px;                   /* ตัวอักษรบรรยายเล็กกว่าชื่อหลัก */
+  color: #5B564D;                    /* สีเทาอมน้ำตาล อ่อนกว่าตัวหนังสือหลัก */
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;                          /* ระยะห่างเล็กน้อยระหว่างลิงก์เมนูแต่ละอัน */
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: #24211D;
+  padding: 8px 12px;                 /* พื้นที่กดรอบตัวหนังสือ ให้กดง่ายขึ้นบนมือถือ */
+  font-size: 14px;
+}
+
+.main-nav a:hover {
+  color: #7E1D2B;                    /* เอาเมาส์ไปชี้แล้วเปลี่ยนเป็นสีแดงเลือดหมู */
+}
+
+/* หน้าไหนกำลังเปิดอยู่ ใส่ class="active" ไว้ในลิงก์นั้นในไฟล์ html เอง */
+.main-nav a.active {
+  color: #7E1D2B;
+  font-weight: bold;                 /* ทำให้เห็นชัดว่ากำลังอยู่หน้านี้ */
+}
+
+.main-nav a.cta {
+  background: #7E1D2B;               /* ปุ่ม "แจ้งความประสงค์" ให้เด่นกว่าลิงก์เมนูอื่น */
+  color: #FFFFFF;
+  padding: 8px 14px;
+}
+
+.main-nav a.cta:hover {
+  background: #5C1420;               /* สีเข้มขึ้นตอนชี้เมาส์ */
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 3: เมนูมือถือ (แฮมเบอร์เกอร์)
+
+   วิธีทำงานคร่าว ๆ (เรียกว่า checkbox hack):
+   - ในไฟล์ html มี checkbox ซ่อนไว้ ชื่อ #navToggle
+   - ปุ่มแฮมเบอร์เกอร์จริง ๆ คือ label ที่ผูกกับ checkbox ตัวนั้น
+     กด label เท่ากับติ๊ก/เลิกติ๊ก checkbox ให้อัตโนมัติ (ธรรมชาติของ html)
+   - เราแค่เขียน CSS ว่า "ถ้า checkbox ถูกติ๊ก (:checked) ให้โชว์เมนู"
+   ------------------------------------------------------------ */
+
+.nav-toggle {
+  position: absolute;                /* ดึงออกจากลำดับปกติ ไม่กินพื้นที่ */
+  opacity: 0;                        /* ทำให้มองไม่เห็น checkbox ตัวจริง */
+  width: 0;
+  height: 0;
+}
+
+.menu-btn {
+  display: none;                     /* ค่าเริ่มต้นบนจอกว้าง: ซ่อนปุ่มแฮมเบอร์เกอร์ไว้ก่อน */
+  width: 36px;
+  height: 36px;
+  border: 1px solid #E1D7BF;
+  cursor: pointer;                   /* เปลี่ยนเมาส์เป็นรูปมือตอนชี้ */
+}
+
+.menu-btn span {
+  display: block;                    /* เส้นขีด 3 เส้นของไอคอนแฮมเบอร์เกอร์ */
+  width: 18px;
+  height: 2px;
+  background: #24211D;
+  margin: 4px auto;                  /* ระยะห่างระหว่างเส้น + จัดกึ่งกลางปุ่ม */
+}
+
+/* จอแคบกว่า 768px (มือถือ/แท็บเล็ต) เปลี่ยนรูปแบบเมนูทั้งหมด
+   ใช้จุดตัดจุดเดียวทั้งไฟล์ ไม่แยกหลายค่าให้งง */
+@media (max-width: 768px) {
+
+  .main-nav {
+    display: none;                   /* ซ่อนเมนูไว้ก่อนเป็นค่าเริ่มต้นบนมือถือ */
+    flex-direction: column;          /* เรียงลิงก์เมนูเป็นแนวตั้งแทนแนวนอน */
+    width: 100%;
+    position: absolute;
+    top: 100%;                       /* ให้ลอยอยู่ใต้แถบเมนูพอดี */
+    left: 0;
+    background: #FAF6EF;
+    border-bottom: 1px solid #E1D7BF;
+  }
+
+  /* กติกาหลัก: ถ้า #navToggle ถูกติ๊ก ให้โชว์ .main-nav ที่อยู่ถัดจากมัน */
+  .nav-toggle:checked + .menu-btn + .main-nav {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: flex;                   /* บนมือถือ ให้โชว์ปุ่มแฮมเบอร์เกอร์ */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-sub {
+    display: none;                   /* หน้าจอแคบ ซ่อนคำบรรยายเล็ก ๆ ประหยัดที่ */
+  }
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 4: ส่วนพาดหัว (Hero) เฉพาะหน้าแรก
+   ------------------------------------------------------------ */
+
+.hero {
+  background: #7E1D2B;               /* พื้นหลังสีแดงเลือดหมูของมหาลัย */
+  padding: 24px 0;
+}
+
+.hero-photo-wrap {
+  display: block;
+}
+
+.hero-photo {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #B98A2A;               /* สีทอง เป็นปุ่มหลักที่อยากให้คนกด */
+  color: #2B1D06;
+}
+
+.btn-primary:hover {
+  background: #CA9C3C;
+}
+
+.btn-ghost {
+  border: 1px solid #FFFFFF;         /* ปุ่มรอง แค่มีเส้นขอบ ไม่มีพื้นสี */
+  color: #FFFFFF;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.15); /* พื้นหลังจาง ๆ ตอนชี้เมาส์ */
+}
+
+/* ------------------------------------------------------------
+   ส่วนที่ 5: หัวข้อของแต่ละ section (ใช้ซ้ำหลายหน้า)
+   ------------------------------------------------------------ */
+
+.section-pad {
+  padding: 40px 0;                   /* ระยะห่างบน-ล่างของแต่ละ section */
+}
+
+.alt-bg {
+  background: #F0E8D8;               /* สีพื้นหลังโทนทราย ใช้สลับกับ section สีขาว */
+}
+
+.section-head {
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  text-align: center;
+}
+
+.section-head h2 {
+  font-size: 24px;
+  color: #7E1D2B;
+}
+
+.section-head p {
+  margin-top: 8px;
+  color: #5B564D;
+}
+
+/* หัวข้อบนสุดของหน้าย่อย (schedule / apply / contact) */
+.page-head {
+  text-align: center;
+  padding: 30px 0 6px 0;
+}
+
+.page-head h1 {
+  font-size: 26px;
+  color: #7E1D2B;
+}
+
+.page-head p {
+  margin-top: 8px;
+  color: #5B564D;
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 6: การ์ดลิงก์ในหน้าแรก
+   ------------------------------------------------------------ */
+
+.link-cards {
+  display: flex;
+  flex-wrap: wrap;                   /* จอแคบ การ์ดจะตกไปอยู่บรรทัดใหม่เอง */
+  gap: 16px;
+}
+
+.link-card {
+  flex: 1 1 260px;                   /* การ์ดกว้างอย่างน้อย 260px แล้วขยายเท่า ๆ กัน */
+  color: #24211D;
+  background: #FFFFFF;
+  border: 1px solid #E1D7BF;
+  padding: 18px;
+}
+
+.link-card:hover {
+  border-color: #7E1D2B;             /* ขอบเปลี่ยนเป็นสีแดงตอนชี้เมาส์ */
+}
+
+.link-card b {
+  display: block;
+  color: #7E1D2B;
+  margin-bottom: 6px;
+}
+
+.link-card span {
+  font-size: 13px;
+  color: #5B564D;
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 7-8: โปสเตอร์กำหนดการรับสมัคร / ตารางเปรียบเทียบ (หน้า schedule)
+   ------------------------------------------------------------ */
+
+.schedule-poster {
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  margin:  auto;
+  border: 1px solid #E1D7BF;
+}
+
+.form-note {
+  font-size: 12px;
+  color: #5B564D;
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 9: แบบฟอร์มแจ้งความประสงค์สมัครเรียน
+   ------------------------------------------------------------ */
+
+.apply-shell {
+  background: #FFFFFF;
+  border: 1px solid #E1D7BF;
+}
+
+.apply-head {
+  background: #7E1D2B;
+  color: #FFFFFF;
+  padding: 20px;
+}
+
+.apply-head h2 {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.apply-head p {
+  margin-top: 6px;
+  color: #EFDDC2;
+  font-size: 13px;
+}
+
+.apply-form {
+  padding: 20px;
+}
+
+.form-block {
+  margin-bottom: 24px;               /* เว้นระยะระหว่างแต่ละหมวดของฟอร์ม */
+}
+
+.form-block-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  color: #7E1D2B;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #F0E8D8;  /* เส้นคั่นใต้หัวข้อแต่ละหมวด */
+}
+
+.form-block-title .n {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;                /* เลข 1 2 3 4 อยู่ในวงกลมเล็ก ๆ */
+  background: #B98A2A;
+  color: #2B1D06;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ฟอร์มแบ่งเป็นหลายคอลัมน์ (ใช้ flex แทน grid) แต่ละช่องกว้างอย่างน้อย 240px
+   พอจอแคบ พื้นที่ไม่พอ ก็จะตกไปอยู่บรรทัดใหม่เอง ไม่ต้องเขียน media query แยก */
+.grid-2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.field {
+  flex: 1 1 240px;
+  display: flex;
+  flex-direction: column;            /* label อยู่บน ช่องกรอกอยู่ล่าง */
+  gap: 5px;
+}
+
+/* บางช่อง (เช่น ที่อยู่) อยากให้กว้างเต็มแถว เลยตั้ง flex-basis เป็น 100% */
+.field.full {
+  flex: 1 1 100%;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.field .req {
+  color: #7E1D2B;                    /* เครื่องหมาย * สีแดง บอกว่าช่องนี้ต้องกรอก */
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #E1D7BF;
+  background: #FAF6EF;
+  font-family: inherit;              /* ให้ใช้ฟอนต์เดียวกับตัวหนังสือทั่วไปในหน้า ไม่ใช้ฟอนต์เริ่มต้นของเบราว์เซอร์ */
+  font-size: inherit;
+  color: #24211D;
+}
+
+.field textarea {
+  min-height: 70px;
+  resize: vertical;                  /* ลากขยายได้แค่แนวตั้ง กันคนลากจนช่องกว้างเกินฟอร์ม */
+}
+
+.field .hint {
+  font-size: 11px;
+  color: #5B564D;
+}
+
+.upload-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upload-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px dashed #E1D7BF;        /* เส้นประ บอกว่าเป็นจุดให้แนบไฟล์ */
+  background: #FAF6EF;
+}
+
+.upload-info b {
+  display: block;
+  font-size: 13px;
+}
+
+.upload-info span {
+  font-size: 11px;
+  color: #5B564D;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;           /* checkbox กับข้อความยาว ๆ ให้ชิดขอบบน ไม่ใช่กึ่งกลาง */
+  gap: 8px;
+  margin: 16px 0;
+  font-size: 12px;
+  color: #5B564D;
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  padding: 12px 24px;
+  border: none;
+  background: #1B6E5B;               /* สีเขียว ให้ต่างจากสีแดงหลักของเว็บ เด่นว่าเป็นปุ่มยืนยัน */
+  color: #FFFFFF;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #155A4A;
+}
+
+/* ----------------------------------------------------------------
+   กล่องข้อความ "ส่งใบสมัครสำเร็จ" แบบไม่ใช้ JavaScript
+
+   หลักการ (ใช้ CSS :target):
+   1. ปุ่มส่งฟอร์มพาไปที่ URL เดิม + "#success" (ดูใน apply.html
+      ตรง <form action="#success">) เหมือนคลิกลิงก์ที่ชี้ไปยัง id หนึ่ง
+   2. กล่องนี้มี id="success" และซ่อนไว้ก่อนด้วย display:none
+   3. พอ URL ลงท้ายด้วย #success เบราว์เซอร์จะจับคู่กับ selector
+      #success:target แล้วสั่งให้โผล่ขึ้นมา (display:block)
+   ---------------------------------------------------------------- */
+.success-msg {
+  display: none;
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: #E7F3EC;
+  border: 1px solid #BEE0CC;
+  color: #1B5E42;
+  font-size: 13px;
+}
+
+#success:target {
+  display: block;
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 10: หน้าติดต่อเรา
+   ------------------------------------------------------------ */
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-card {
+  flex: 1 1 320px;
+  background: #FFFFFF;
+  border: 1px solid #E1D7BF;
+  padding: 20px;
+}
+
+.contact-line {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #E1D7BF;
+}
+
+.contact-line:last-child {
+  border-bottom: none;
+}
+
+.contact-ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #F0E8D8;
+  color: #7E1D2B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;                    /* ห้ามวงกลมไอคอนถูกบีบเล็กลงเวลาพื้นที่ไม่พอ */
+}
+
+.contact-line b {
+  display: block;
+  font-size: 14px;
+}
+
+.contact-line span {
+  font-size: 13px;
+  color: #5B564D;
+}
+
+/* กล่องแผนที่ (ยังไม่ได้ต่อ Google Maps จริง แค่ใส่ลิงก์กับรูปไว้ก่อน) */
+.map-box {
+  flex: 1 1 280px;
+  min-height: 220px;
+  border: 1px solid #E1D7BF;
+  background: #F0E8D8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* กล่องเล็กด้านในของแผนที่ ใช้จัดรูป + ตัวหนังสือให้อยู่กึ่งกลางแนวตั้ง */
+.map-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-inner span {
+  font-size: 12px;
+  color: #5B564D;
+}
+
+
+/* ------------------------------------------------------------
+   ส่วนที่ 11: ท้ายหน้าเว็บ (Footer)
+   ------------------------------------------------------------ */
+
+.site-footer {
+  background: #5C1420;               /* สีแดงเข้ม (เข้มกว่า header) ให้ footer แยกจากเนื้อหาชัดเจน */
+  color: #EADFC9;
+  padding: 24px 0 18px 0;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img {
+  height: 36px;
+  padding: 2px;
+  background: #FFFFFF;               /* ใส่พื้นขาวหลังโลโก้ กันโลโก้จมกับพื้นแดงเข้ม */
+}
+
+.footer-brand b {
+  display: block;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.footer-brand span {
+  font-size: 12px;
+  color: #CBB98E;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: #C9B98E;
+}
+
+.foot-rule {
+  border: none;                      /* เอาเส้นขอบเริ่มต้นของ <hr> ออกก่อน */
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* แล้วค่อยใส่เส้นบาง ๆ สีขาวจาง ๆ แทน */
+  margin: 18px 0 14px 0;
+}
